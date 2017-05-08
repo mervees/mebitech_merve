@@ -1,0 +1,8 @@
+/**
+ * 
+ */
+/**
+ * 
+ *
+ */
+package com.deneme.entity;

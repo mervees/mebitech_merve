@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<form action="#" th:action="@{/meeting}" th:object="${meeting}" method="post">
+        <p>Name: <input type="text" th:field="*{name}" th:value="${name}"/></p>
+        <p>Description: <input type="text" th:field="*{description}" th:value="${description}"/></p>
+        <p>Department: <input type="text" th:field="*{department}" th:value="${department}"/></p>
+        <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
+    </form>
+    <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Department</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr th:each="m : ${meetingList}">
+                        <td th:text="${m.name}"></td>
+                        <td th:text="${m.description}"></td>
+                        <td th:text="${m.department}"></td>
+  						<td><a th:href="${'/mebitech/delete/' + e.id}">Delete</a>
+  							<a th:href="${'/mebitech/update/' + e.id}">Update</a>
+  						</td>
+                    </tr>
+    </tbody>
+  </table>
+</body>
+</html>
